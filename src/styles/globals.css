@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* カスタムスクロールバー */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* コード表示用のスタイル */
+pre, code {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 実行結果エリアのスタイル */
+.execution-result {
+  @apply border border-gray-200 rounded-lg bg-white p-4;
+  min-height: 100px;
+}
+
+.execution-result pre {
+  @apply text-sm whitespace-pre-wrap break-words;
+}
+
+/* エラー表示のスタイル */
+.error-display {
+  @apply bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg;
+}
+
+.error-display pre {
+  @apply text-sm font-mono whitespace-pre-wrap;
+}
+
+/* 成功表示のスタイル */
+.success-display {
+  @apply bg-green-50 border border-green-200 text-green-700 p-4 rounded-lg;
+}
+
+/* ローディング状態 */
+.loading-spinner {
+  @apply animate-spin rounded-full border-2 border-gray-300 border-t-blue-600;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+}
